@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>24</height>
+    <height>48</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>48</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -34,25 +34,49 @@ border-bottom-style: solid;
 border-bottom-width:2px;
 }</string>
    </property>
-   <widget class="QWidget" name="statusAnimation" native="true">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>11</x>
+      <y>11</y>
       <width>80</width>
-      <height>24</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(52, 101, 164);</string>
+     <string notr="true">color: rgb(55, 164, 51);
+
+</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="time">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>11</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(52, 101, 164);</string>
+    </property>
+    <property name="text">
+     <string>time</string>
     </property>
    </widget>
    <widget class="QLabel" name="headerLabel">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>0</y>
-      <width>111</width>
+      <x>329</x>
+      <y>11</y>
+      <width>181</width>
       <height>20</height>
      </rect>
     </property>

@@ -17,9 +17,11 @@ public:
 
 private slots:
 
-    void on_nav1_clicked();
+    void on_chart_clicked();
 
-    void on_nav2_clicked();
+    void on_dial_menu_clicked();
+
+    void on_config_clicked();
 
 private:
     Ui::navigation *ui;

@@ -22,4 +22,5 @@ private:
     Ui::status *ui;
 };
 
+
 #endif // STATUS_H

@@ -11,18 +11,25 @@ navigation::navigation(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    if (QFontDatabase::addApplicationFont(":/FontAwesome.otf") < 0)
+    if (QFontDatabase::addApplicationFont(":/FontAwesomeSolid.otf") < 0)
         qWarning() << "FontAwesome cannot be loaded !";
 
     QFont font;
-    font.setFamily("FontAweasome");
-    font.setPixelSize(86);
+    font.setFamily("FontAweasomeSolid");
+    font.setPixelSize(70);
 
-    ui->nav1->setFont(font);
-    ui->nav1->setText("\uf080");
+    ui->chart->setFocusPolicy(Qt::NoFocus);
+    ui->config->setFocusPolicy(Qt::NoFocus);
+    ui->dial_menu->setFocusPolicy(Qt::NoFocus);
 
-    ui->nav2->setFont(font);
-    ui->nav2->setText("\uf0ad");
+    ui->chart->setFont(font);
+    ui->chart->setText("\uf080");
+
+    ui->dial_menu->setFont(font);
+    ui->dial_menu->setText("\uf3fd");
+
+    ui->config->setFont(font);
+    ui->config->setText("\uf0ad");
 
 }
 
@@ -31,20 +38,26 @@ navigation::~navigation()
     delete ui;
 }
 
-void navigation::on_nav1_clicked()
+void navigation::on_chart_clicked()
 {
     QStackedWidget *stack = parentWidget()->findChild<QStackedWidget *>("mainStack");
     QLabel *label = parentWidget()->findChild<QLabel*>("headerLabel");
     stack->setCurrentIndex(0);
-   label->setText("page 1");
-    qDebug() << "page 1";
+    label->setText("Chart");
 }
 
-void navigation::on_nav2_clicked()
+void navigation::on_config_clicked()
 {
     QStackedWidget *stack = parentWidget()->findChild<QStackedWidget *>("mainStack");
     QLabel *label = parentWidget()->findChild<QLabel*>("headerLabel");
     stack->setCurrentIndex(1);
-    label->setText("page 2");
-    qDebug() << "page 2";
+    label->setText("Config");
+}
+
+void navigation::on_dial_menu_clicked()
+{
+    QStackedWidget *stack = parentWidget()->findChild<QStackedWidget *>("mainStack");
+    QLabel *label = parentWidget()->findChild<QLabel*>("headerLabel");
+    stack->setCurrentIndex(2);
+    label->setText("Controls");
 }

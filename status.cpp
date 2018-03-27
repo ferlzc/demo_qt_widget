@@ -4,27 +4,31 @@
 #include "status.h"
 #include "ui_status.h"
 #include <QFontDatabase>
+#include <QTime>
 
 status::status(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::status)
 {
     ui->setupUi(this);
+
     QTimer *timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),
             this, SLOT(timer_out())
             );
     timer->start(1000);
 
-    ui->headerLabel->setText("page 1");
+    ui->headerLabel->setText("Chart");
 
-    if (QFontDatabase::addApplicationFont(":/FontAwesome.otf") < 0)
-        qWarning() << "FontAwesome cannot be loaded !";
+    QFont fontSolid;
 
-    QFont font;
-    font.setFamily("FontAweasome");
-    font.setPixelSize(48);
+    fontSolid.setFamily("FontAweasomeSolid");
+    fontSolid.setPixelSize(23);
 
+    ui->label->setFont(fontSolid);
+    ui->label->setText("\uf105");
+
+    ui->time->setText(QDateTime::currentDateTime().toString("hh:mm:ss dd.MM.yyyy"));
 }
 
 status::~status()
@@ -32,18 +36,16 @@ status::~status()
     delete ui;
 }
 
+
 void status::timer_out()
 {
-
-    static bool toogle = true;
-    qDebug() << "timer out!";
-
-    if (toogle) {
-    ui->statusAnimation->setStyleSheet("background-color: rgb(52, 101, 164)");
+    static bool toggle = true;
+    ui->time->setText(QDateTime::currentDateTime().toString("hh:mm:ss dd.MM.yyyy"));
+    if (toggle) {
+        ui->label->setText("\uf105");
     }
     else {
-    ui->statusAnimation->setStyleSheet("background-color: rgb(91, 150, 240)");
+        ui->label->setText("\uf101");
     }
-
-    toogle = !toogle;
+    toggle = !toggle;
 }

@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>FontAwesome.otf</file>
+        <file>FontAwesomeSolid.otf</file>
+        <file>FontAwesomeRegular.otf</file>
+        <file>Ubuntu-RI.ttf</file>
+        <file>Ubuntu-R.ttf</file>
     </qresource>
 </RCC>
